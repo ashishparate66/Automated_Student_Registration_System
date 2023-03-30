@@ -24,6 +24,7 @@ public class StudentDTOImpl implements StudentDTO {
 		this.course_id = course_id;
 	}
 
+
 	public String getStdId() {
 		return stdId;
 	}

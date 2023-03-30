@@ -122,5 +122,5 @@ public List<BatchDTO> searchBatchWithId(String batchId) throws SomethingWentWron
 				
 			}
 		}	
-}
+	}
 }
