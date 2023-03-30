@@ -1,6 +1,7 @@
 package com.masai.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -28,6 +29,7 @@ public class StudentDAOImpl implements StudentDAO {
 			ps.setString(6, stdDTO.getEmail());
 			ps.setString(7, stdDTO.getPassword());
 			ps.setInt(8, stdDTO.getCourse_id());
+			
 			
 			ps.executeUpdate();
 		}catch(ClassNotFoundException | SQLException ex) {
@@ -66,5 +68,61 @@ public class StudentDAOImpl implements StudentDAO {
 			}
 		}
 		return list;
+	}
+	
+	
+	public void updateStudent(StudentDTO student) throws SomethingWentWrongException{
+		Connection conn = null;
+		try {
+			conn = DBUtils.getConnectionTodatabase();
+			String query = "UPDATE student SET firstName = ?, lastName = ?, address = ?, mobile=?, email=?, password=?, courseId=? WHERE stdId = ?";
+			PreparedStatement ps = conn.prepareStatement(query);
+			ps.setString(1, student.getFirstName());
+			ps.setString(2, student.getLastName());
+			ps.setString(3, student.getAddress());
+			ps.setString(4, student.getMobile());
+			ps.setString(5, student.getEmail());
+			ps.setString(6, student.getPassword());
+			ps.setInt(7, student.getCourse_id());
+			ps.setString(8, student.getStdId());
+			
+			ps.executeUpdate();
+			
+		}catch(ClassNotFoundException | SQLException ex) {
+			throw new SomethingWentWrongException("Unable to update the record now, try again later");
+		}finally {
+			try {
+				DBUtils.closeConnection(conn);					
+			}catch(SQLException ex) {
+				
+			}
+		}	
+	}
+	
+	public void updatePasswordDao(String password, String Newpassword) throws SomethingWentWrongException, NoRecordFoundException {
+		Connection conn = null;
+		try {
+			conn = DBUtils.getConnectionTodatabase();
+			String query = "UPDATE student SET password = ? WHERE password = ?";
+			PreparedStatement ps = conn.prepareStatement(query);
+			ps.setString(1, Newpassword);
+			ps.setString(2, password);
+			
+			int rs = ps.executeUpdate();;
+			if(rs == 0) {
+				throw new NoRecordFoundException("Invalid Old Password");
+			}
+			
+		
+			
+		}catch(ClassNotFoundException | SQLException ex) {
+			throw new SomethingWentWrongException("Unable to update Password, try again later");
+		}finally {
+			try {
+				DBUtils.closeConnection(conn);					
+			}catch(SQLException ex) {
+				
+			}
+		}	
 	}
 }

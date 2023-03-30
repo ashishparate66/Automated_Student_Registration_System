@@ -8,9 +8,9 @@ import com.masai.dto.StudentDTO;
 import com.masai.dto.StudentDTOImpl;
 import com.masai.exception.SomethingWentWrongException;
 
-public class StudentSignUp {
-
-	public static void addStudent(Scanner sc) {
+public class UpdateStudentDetails {
+	
+	public static void UpdateStudent(Scanner sc) {
 		System.out.println("=========================================================================");
 		System.out.println();
 		
@@ -28,22 +28,21 @@ public class StudentSignUp {
 		String email = sc.next();
 		System.out.print("Enter password ");
 		String password = sc.next();
-		System.out.print("Enter course_id ");
+		System.out.print("Enter course id ");
 		int course_id = sc.nextInt();
-		
 		
 		System.out.println();
 		System.out.println("=========================================================================");
 		
 		//stuff data to DTO
-		StudentDTO student = new StudentDTOImpl(stdId, firstName, lastName, address, mobile, email, password, course_id);
+		StudentDTO student = new StudentDTOImpl(stdId, firstName, lastName, address, mobile, email,password,course_id);
 		
 		StudentDAO stdDAO = new StudentDAOImpl();
 		try {
-			stdDAO.addStudentdao(student);
+			stdDAO.updateStudent(student);
 			System.out.println("=========================================================================");
 			System.out.println();
-			System.out.println("Student added successfully");	
+			System.out.println("Student update successfully");	
 			System.out.println();
 			System.out.println("=========================================================================");
 		}catch(SomethingWentWrongException ex) {

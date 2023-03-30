@@ -29,8 +29,7 @@ public class SearchAboutBatch {
 			List<BatchDTO> batchList = batchDAO.searchBatchWithId(batchId);
 			Consumer<BatchDTO> con = c -> System.out.println("Batch ID " + c.getBatchId() + " BatchName " + c.getBatchName() 
 			+ " Batch Start Date " + c.getBatchStartDate() + " Batch End Date " + c.getBatchEndDate() + " Course Name "+c.getCourseName()+" course id "+c.getCourseId());
-			
-			
+		
 			batchList.forEach(con);
 			System.out.println();
 			System.out.println("=========================================================================");

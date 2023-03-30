@@ -9,6 +9,8 @@ import java.util.List;
 
 import com.masai.dto.CourseDTO;
 import com.masai.dto.CourseDTOImpl;
+import com.masai.dto.StudentDTO;
+import com.masai.dto.StudentDTOImpl;
 import com.masai.exception.NoRecordFoundException;
 import com.masai.exception.SomethingWentWrongException;
 import com.masai.utility.DBUtils;
@@ -93,7 +95,32 @@ public class CourseDAOImpl implements CourseDAO {
 		}	
 	}
 	
-	
+	public List<CourseDTO> getCourseList() throws SomethingWentWrongException, NoRecordFoundException{
+		Connection conn = null;
+		List<CourseDTO> list = new ArrayList<>();
+		try {
+			conn = DBUtils.getConnectionTodatabase();
+			String query = "SELECT courseId, courseName,courseDuration,fee FROM course";
+			PreparedStatement ps = conn.prepareStatement(query);
+			ResultSet rs = ps.executeQuery();
+			if(DBUtils.isResultSetEmpty(rs)) {
+				throw new NoRecordFoundException("No course found");
+			}
+			while(rs.next()) {
+				list.add(new CourseDTOImpl(rs.getString(1), rs.getString(2), rs.getInt(3), rs.getInt(4) ));
+			}
+			
+		}catch(ClassNotFoundException | SQLException ex) {
+			throw new SomethingWentWrongException("Unable to update the record now, try again later");
+		}finally {
+			try {
+				DBUtils.closeConnection(conn);					
+			}catch(SQLException ex) {
+				
+			}
+		}
+		return list;
+	}
 	
 	
 	

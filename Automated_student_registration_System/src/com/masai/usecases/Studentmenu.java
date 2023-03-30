@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Studentmenu {
 	
 	static void displayUserMenu() {
-		System.out.println("=========================================================================");
+		System.out.println("========================*** Welcome ***==========================");
 		System.out.println();
 		
 		System.out.println("1. Can Update Personel Details");
@@ -31,13 +31,13 @@ public class Studentmenu {
 			choice = sc.nextInt();
 			switch(choice) {
 				case 1:
-					//productUI.viewAllProducts();
+					UpdateStudentDetails.UpdateStudent(sc);
 					break;
 				case 2:
-//					OrderUI.purchase(sc);
+					UpdatePassword.updatepassword(sc);
 					break;
 				case 3:
-					//orderUI.viewOrderDetails();
+					ViewCourseList.viewCourse();
 					break;
 				case 4:
 					//userUI.updateNameOfUser();

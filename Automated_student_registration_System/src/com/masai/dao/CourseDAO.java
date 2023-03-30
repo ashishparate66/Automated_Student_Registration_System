@@ -10,4 +10,5 @@ public interface CourseDAO {
 	public void addCoursedao(CourseDTO courseDTO) throws SomethingWentWrongException ;
 	public List<CourseDTO> searchCourseWithName(String courseName) throws SomethingWentWrongException, NoRecordFoundException;
 	public void updateCourse(CourseDTO course) throws SomethingWentWrongException;
+	public List<CourseDTO> getCourseList() throws SomethingWentWrongException, NoRecordFoundException;
 }
