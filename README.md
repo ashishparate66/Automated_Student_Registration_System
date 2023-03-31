@@ -1,2 +1,3 @@
 # equable-tomatoes-3054
-<img align = "center" width = "100%" src = "https://www.canva.com/design/DAFevFQcRRM/AzAixgfByj1LhUcoVr0OsA/edit?utm_content=DAFevFQcRRM&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" alt="ER-daigram">
+
+<img align = "center" width = "100%" src ="https://drive.google.com/file/d/1w5Qohn5g3AizYHTkbKpIFTBpGLlTUorg/view?usp=share_link" alt="ER-daigram">
