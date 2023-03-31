@@ -1,3 +1,3 @@
 # equable-tomatoes-3054
 
-<img align="center" src="https://drive.google.com/file/d/1tMwewB014ColzQy07UIqMnUPwU82H8js/view?usp=share_link" alt="ashish parate" height="30" width="40" />
+<img align="center" src="https://www.canva.com/design/DAFevFQcRRM/AzAixgfByj1LhUcoVr0OsA/edit?utm_content=DAFevFQcRRM&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" alt="ashish parate" height="30" width="40" />
