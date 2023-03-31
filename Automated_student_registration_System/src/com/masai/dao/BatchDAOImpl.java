@@ -8,8 +8,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.masai.dto.BatchCourseDTO;
+import com.masai.dto.BatchCourseDTOImpl;
 import com.masai.dto.BatchDTO;
 import com.masai.dto.BatchDTOImpl;
+import com.masai.dto.NoOfBatchAndCourseNameDTO;
+import com.masai.dto.NoOfBatchAndCourseNameDTOImpl;
 import com.masai.exception.NoRecordFoundException;
 import com.masai.exception.SomethingWentWrongException;
 import com.masai.utility.DBUtils;
@@ -122,5 +126,59 @@ public List<BatchDTO> searchBatchWithId(String batchId) throws SomethingWentWron
 				
 			}
 		}	
+	}
+	
+	public List<BatchCourseDTO> getBatchCourseList() throws SomethingWentWrongException, NoRecordFoundException{
+		Connection conn = null;
+		List<BatchCourseDTO> list = new ArrayList<>();
+		try {
+			conn = DBUtils.getConnectionTodatabase();
+			String query = "SELECT batchName,courseName FROM batch";
+			PreparedStatement ps = conn.prepareStatement(query);
+			ResultSet rs = ps.executeQuery();
+			if(DBUtils.isResultSetEmpty(rs)) {
+				throw new NoRecordFoundException("No batch found");
+			}
+			while(rs.next()) {
+				list.add(new BatchCourseDTOImpl(rs.getString(1), rs.getString(2)));
+			}
+			
+		}catch(ClassNotFoundException | SQLException ex) {
+			throw new SomethingWentWrongException("Unable to update the record now, try again later");
+		}finally {
+			try {
+				DBUtils.closeConnection(conn);					
+			}catch(SQLException ex) {
+				
+			}
+		}
+		return list;
+	}
+	
+	public List<NoOfBatchAndCourseNameDTO> getNoOfBatches() throws SomethingWentWrongException, NoRecordFoundException{
+		Connection conn = null;
+		List<NoOfBatchAndCourseNameDTO> list = new ArrayList<>();
+		try {
+			conn = DBUtils.getConnectionTodatabase();
+			String query = "select courseName, count(distinct batchName) No_Of_Batches from batch group by courseName;";
+			PreparedStatement ps = conn.prepareStatement(query);
+			ResultSet rs = ps.executeQuery();
+			if(DBUtils.isResultSetEmpty(rs)) {
+				throw new NoRecordFoundException("No batch found");
+			}
+			while(rs.next()) {
+				list.add(new NoOfBatchAndCourseNameDTOImpl(rs.getString(1), rs.getInt(2)));
+			}
+			
+		}catch(ClassNotFoundException | SQLException ex) {
+			throw new SomethingWentWrongException("Unable to update the record now, try again later");
+		}finally {
+			try {
+				DBUtils.closeConnection(conn);					
+			}catch(SQLException ex) {
+				
+			}
+		}
+		return list;
 	}
 }

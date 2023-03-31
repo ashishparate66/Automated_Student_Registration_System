@@ -12,4 +12,5 @@ public interface StudentDAO {
 	public List<StudentDTO> getStudentList() throws SomethingWentWrongException, NoRecordFoundException;
 	public void updateStudent(StudentDTO student) throws SomethingWentWrongException;
 	public void updatePasswordDao(String password, String Newpassword) throws SomethingWentWrongException, NoRecordFoundException;
+	public void deleteStudent(String email) throws SomethingWentWrongException;
 }

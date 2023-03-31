@@ -3,6 +3,7 @@ package com.masai.UI;
 import java.util.Scanner;
 
 import com.masai.usecases.Adminmenu;
+import com.masai.usecases.ConsoleColors;
 import com.masai.usecases.StudentSignUp;
 import com.masai.usecases.Studentmenu;
 
@@ -14,13 +15,19 @@ public class Main {
 		
 		int choice = 0;
 		do {
-			System.out.println("=============Select your Option================");
-			System.out.println("1. Admin Login\n2. Student Sign Up\n3. Student Log In \n0. Exit");
-			System.out.println("================================================");
+			System.out.println(ConsoleColors.BLUE_BOLD+"*********"+ConsoleColors.PURPLE_BOLD+"Select your Option"+ConsoleColors.BLUE_BOLD+"**********"+ConsoleColors.RESET );
+			
+			System.out.println();
+			System.out.println(ConsoleColors.RED_BOLD+ConsoleColors.TEAL_BACKGROUND+"|           1. Admin Login           |");
+			System.out.println("|           2. Student Sign Up       |");
+			System.out.println("|           3. Student Log In        |");
+			System.out.println("|           0. Exit                  |"+ConsoleColors.RESET);
+			System.out.println();
+			System.out.println(ConsoleColors.BLUE_BOLD+"**************************************"+ConsoleColors.RESET);
 			choice = sc.nextInt();
 			switch(choice) {
 				case 0:
-					System.out.println("Thank you, Visit again");
+					System.out.println(ConsoleColors.GREEN_BOLD+"Thank you, Visit again"+ConsoleColors.RESET);
 					break;
 				case 1:
 					Adminmenu.adminLogin(sc);
