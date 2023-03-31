@@ -1,3 +1,3 @@
 # equable-tomatoes-3054
 
-<img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="ashish parate" height="30" width="40" />
+<img align="center" src="https://drive.google.com/file/d/1w5Qohn5g3AizYHTkbKpIFTBpGLlTUorg/view?usp=share_link" alt="ashish parate" height="30" width="40" />
