@@ -48,7 +48,7 @@ public class StudentDAOImpl implements StudentDAO {
 		List<StudentDTO> list = new ArrayList<>();
 		try {
 			conn = DBUtils.getConnectionTodatabase();
-			String query = "SELECT stdId, firstName,lastName,address,mobile,email,password,courseId FROM student";
+			String query = "SELECT stdId, firstName,lastName,address,mobile,email,password,courseId FROM student where is_delete=0";
 			PreparedStatement ps = conn.prepareStatement(query);
 			ResultSet rs = ps.executeQuery();
 			if(DBUtils.isResultSetEmpty(rs)) {
@@ -124,5 +124,24 @@ public class StudentDAOImpl implements StudentDAO {
 				
 			}
 		}	
+	}
+	
+	public void deleteStudent(String email) throws SomethingWentWrongException{
+		Connection conn = null;
+		try {
+			conn = DBUtils.getConnectionTodatabase();
+			String query = "UPDATE student set is_delete=1 WHERE email = ?";
+			PreparedStatement ps = conn.prepareStatement(query);
+			ps.setString(1, email);
+			ps.executeUpdate();
+		}catch(ClassNotFoundException | SQLException ex) {
+			throw new SomethingWentWrongException("Unable to delete the student now, try again later");
+		}finally {
+			try {
+				DBUtils.closeConnection(conn);					
+			}catch(SQLException ex) {
+				
+			}
+		}
 	}
 }

@@ -79,3 +79,9 @@ select count(*) from student s Inner Join course c ON s.courseId = c.id group by
 select batchName,count(*) from student s inner join course c ON s.courseId=c.id Join batch b ON b.courseId=c.id group by batchName;
 
  select batchName,count(batchName) from student s inner join course c ON s.courseId=c.id Join batch b ON b.courseId=c.id group by batchName;
+ 
+ =========================================================================================================
+ 
+select batchName,c.courseName from student s inner join course c ON s.courseId=c.id Join batch b ON b.courseId=c.id group by batchName;
+
+select batchName,c.courseName from course c Join batch b ON b.courseId=c.id group by batchName;
