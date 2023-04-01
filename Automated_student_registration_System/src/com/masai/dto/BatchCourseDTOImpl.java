@@ -8,7 +8,7 @@ public class BatchCourseDTOImpl implements BatchCourseDTO {
 	public BatchCourseDTOImpl(String batchName, String courseName) {
 		super();
 		this.batchName = batchName;
-		CourseName = courseName;
+		CourseName =  courseName;
 	}
 
 	public String getBatchName() {
