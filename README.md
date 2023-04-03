@@ -6,7 +6,7 @@
 ## Key Features:
 ### Admin Menu
 
-#### + Add new Course
++ Add new Course
 #### + Search about the Course 
 #### Update Details of Course
 #### Create a batch under a course
