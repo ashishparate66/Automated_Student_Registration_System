@@ -7,22 +7,22 @@
 ### Admin Menu
 
 + Add new Course
-#### + Search about the Course 
-#### Update Details of Course
-#### Create a batch under a course
-#### Search information about batch
-#### Update details of batch 
-#### View Student Details
-#### View the List of Batch
-#### Total Batches every Course
++ Search about the Course 
++ Update Details of Course
++ Create a batch under a course
++ Search information about batch
++ Update details of batch 
++ View Student Details
++ View the List of Batch
++ Total Batches every Course
 
 ### Student Menu
 
-#### Can Update Personel Details
-#### Can Change Password
-#### Can See All the Availble Course List
-#### Can see All Batches Course Wise
-#### Delete Acoount  
++ Can Update Personel Details
++ Can Change Password
++ Can See All the Availble Course List
++ Can see All Batches Course Wise
++ Delete Acoount  
 
 
 
