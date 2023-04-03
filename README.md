@@ -4,6 +4,9 @@
 ##### In an Educational Institute, every year technology training is conducted during the summer and winter seasons. Students are enrolled in different courses under different technology tracks. This automated application will help Institute create batches under a course, register the students, and efficiently allocate the student in a batch.
 
 ## Key Features:
+#### username-admin
+#### password-admin
+
 ### Admin Menu
 
 + Add new Course
